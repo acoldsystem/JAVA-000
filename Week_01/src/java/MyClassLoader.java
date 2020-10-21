@@ -16,11 +16,9 @@ public class MyClassLoader extends ClassLoader {
         clazz.getMethod("hello").invoke(object);
     }
 
-
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
 //        Class clazz = null;
-
         String path = this.getClass().getResource("/Hello.xlass").getPath();
         byte[] fileBytes = new byte[0];
 
@@ -36,8 +34,6 @@ public class MyClassLoader extends ClassLoader {
     }
 
     private byte[] readFile(String path) throws IOException {
-
-
         FileInputStream fileInputStream = new FileInputStream(path);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
@@ -48,7 +44,6 @@ public class MyClassLoader extends ClassLoader {
         }
         return outputStream.toByteArray();
     }
-
 
     private void decode(byte[] fileBytes) {
         for (int i = 0; i < fileBytes.length; i++) {
